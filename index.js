@@ -1,4 +1,6 @@
-/* eslint-disable max-classes-per-file */
+import Book from './modules/book.js';
+import library from './modules/library.js';
+import Store from './modules/bookstore.js';
 
 // Time code
 const currentTime = document.querySelector('.current-time');
@@ -78,64 +80,8 @@ function disappear() {
   });
 }
 
-// Book class to represent a book
-class Book {
-  constructor(id, title, author) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-  }
-}
-
-// Store class to handle local storage
-class Store {
-  static getBooks() {
-    const books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-    return books;
-  }
-
-  static addBook(book) {
-    const books = Store.getBooks();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-
-  static removeBook(i) {
-    const books = Store.getBooks();
-    books.splice(i, 1);
-    localStorage.setItem('books', JSON.stringify(books));
-    document.location.reload();
-  }
-}
 
 // Design Frontend of our library
-
-class library {
-  static showBooks() {
-    const books = Store.getBooks();
-
-    books.forEach((book) => library.addBook(book));
-  }
-
-  static addBook(book) {
-    const allBooks = document.querySelector('.all-books');
-    const newBook = document.createElement('div');
-    newBook.classList = 'book';
-
-    newBook.innerHTML = `
-      
-      <p class="title">"${book.title}" by <span></span>${book.author}</p>
-      <button class="remove">Remove</button>
-    
-      `;
-
-    allBooks.append(newBook);
-  }
-
-  static clearInput() {
-    document.querySelector('form').reset();
-  }
-}
 
 // Event to display books
 document.addEventListener('DOMContentLoaded', library.showBooks);
@@ -163,7 +109,7 @@ document.querySelector('#add-book').addEventListener('submit', (e) => {
 });
 
 // Event to call a function to remove a book
-function activateDelete() {
+const activateDelete = () => {
   const remove = document.querySelectorAll('.remove');
 
   remove.forEach((btn, i) => {
@@ -171,7 +117,7 @@ function activateDelete() {
       Store.removeBook(i);
     });
   });
-}
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   activateDelete();
