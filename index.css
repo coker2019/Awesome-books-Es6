@@ -82,6 +82,8 @@ nav .top {
 
 nav .top .logo {
   color: black;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 nav .menu ul {
@@ -122,7 +124,7 @@ nav .bottom {
 
 footer {
   width: 85%;
-  margin: 4rem auto;
+  margin: 20rem auto;
   border: 3px solid black;
   padding: 0.5rem;
 }
