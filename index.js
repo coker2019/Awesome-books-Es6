@@ -4,7 +4,7 @@ import Store from './modules/bookstore.js';
 import { DateTime } from './modules/luxon.js';
 
 // Time code
-const currentTime = document.querySelector('.current-time');
+const currentTime = document.querySelector('.main-time');
 const dateTime = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 currentTime.innerHTML = dateTime;
 
