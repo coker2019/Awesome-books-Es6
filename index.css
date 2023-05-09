@@ -7,7 +7,7 @@
 }
 
 .all-books {
-  width: 95%;
+  width: 60%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
@@ -34,7 +34,7 @@
 
 .add-book,
 .add-area {
-  width: 85%;
+  width: 55%;
   margin: 0.5rem auto;
   display: flex;
   flex-direction: column;
@@ -45,6 +45,8 @@
 
 .site-head {
   padding: 1rem;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .add-area h2 {
@@ -80,6 +82,8 @@ nav .top {
 
 nav .top .logo {
   color: black;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 nav .menu ul {
@@ -120,7 +124,7 @@ nav .bottom {
 
 footer {
   width: 85%;
-  margin: 1rem auto;
+  margin: 20rem auto;
   border: 3px solid black;
   padding: 0.5rem;
 }
