@@ -1,65 +1,14 @@
 import Book from './modules/book.js';
 import library from './modules/library.js';
 import Store from './modules/bookstore.js';
+import { DateTime } from './modules/luxon.js';
 
 // Time code
 const currentTime = document.querySelector('.current-time');
+const dateTime = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+currentTime.innerHTML = dateTime;
 
-function showTime() {
-  const time = new Date();
-  currentTime.innerHTML = time.toLocaleTimeString('en-US', { hour12: true });
-  setTimeout(showTime, 1000);
-}
-showTime();
-
-// Date Code
-
-function currentDate() {
-  const now = new Date();
-
-  // return integer
-  const dayName = now.getDay();
-  const dayNum = now.getDate();
-  const month = now.getMonth();
-  const year = now.getFullYear();
-
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  const weekDay = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
-
-  // collect ids of date
-  const collect = ['day', 'daynum', 'month', 'year'];
-
-  // return value array with number as a index
-  const val = [weekDay[dayName], dayNum, months[month], year];
-
-  for (let i = 0; i < collect.length; i += 1) {
-    document.getElementById(collect[i]).firstChild.nodeValue = val[i];
-  }
-}
-currentDate();
-
-function goToSection(i) {
+const goToSection = (i) => {
   const contents = document.getElementsByTagName('section');
   for (let x = 0; x < contents.length; x += 1) {
     if (i !== x) {
@@ -68,18 +17,17 @@ function goToSection(i) {
       contents[x].classList.remove('active');
     }
   }
-}
+};
 
 // navigation to display specific sections of the page
-function disappear() {
+const disappear = () => {
   const links = document.querySelectorAll('.menu-link');
   links.forEach((lk, i) => {
     lk.addEventListener('click', () => {
       goToSection(i);
     });
   });
-}
-
+};
 
 // Design Frontend of our library
 
